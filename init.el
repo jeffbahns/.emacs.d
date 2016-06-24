@@ -27,12 +27,36 @@
 
 ; 4 spaced tabs
 (setq c-basic-offset 4)
-
+(setq lua-indent-level 2)
 ; line numbers
 (global-linum-mode 1)
 (setq linum-format "%d   ")
 
-;
-(add-to-list 'load-path "~/.emacs.d/neotree")
+; neotrees
+(add-to-list 'load-path "~/.emacs.d/neotree/")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+; autopairing
+(add-to-list 'load-path "~/.emacs.d/elpa/autopair-20160304.437/") ;; comment if autopair.el is in standard load path 
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+
+; nyan cat mode
+(add-to-list 'load-path "~/.emacs.d/nyan-mode")
+(require 'nyan-mode)
+
+;(use-package nyan-mode
+;  :init (nyan-mode 1))
+
+; Goto line like in XEmacs:
+(define-key global-map (kbd "M-g") 'goto-line)
+
+ ;;;; This snippet enables lua-mode
+
+;; This line is not necessary, if lua-mode.el is already on your load-path
+(add-to-list 'load-path "~/.emacs.d/lua-mode/")
+
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
