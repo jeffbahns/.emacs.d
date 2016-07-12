@@ -35,7 +35,7 @@
 ; neotrees
 (add-to-list 'load-path "~/.emacs.d/neotree/")
 (require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+;(global-set-key [f8] 'neotree-toggle)
 
 ; autopairing
 (add-to-list 'load-path "~/.emacs.d/elpa/autopair-20160304.437/") ;; comment if autopair.el is in standard load path 
@@ -43,11 +43,11 @@
 (autopair-global-mode) ;; enable autopair in all buffers
 
 ; nyan cat mode
-(add-to-list 'load-path "~/.emacs.d/nyan-mode")
+(add-to-list 'load-path "./nyan-mode")
 (require 'nyan-mode)
 
-;(use-package nyan-mode
-;  :init (nyan-mode 1))
+(use-package nyan-mode
+  :init (nyan-mode 1))
 
 ; Goto line like in XEmacs:
 (define-key global-map (kbd "M-g") 'goto-line)
@@ -60,3 +60,15 @@
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
